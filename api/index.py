@@ -5,8 +5,8 @@ import os
 app = Flask(__name__)
 
 # Use the exact names you set in Vercel Environment Variables
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+SUPABASE_URL = os.environ.get("https://bibtsjtpsveadrkxuihr.supabase.co")
+SUPABASE_KEY = os.environ.get("sb_secret_Is3-a_asDoXPj2fdRGT9XQ_-amINSeN")
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @app.route('/api/s/<short_id>')
