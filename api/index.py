@@ -4,11 +4,14 @@ import os
 
 app = Flask(__name__)
 
-# CORRECT WAY: Use the names of the variables you saved in Vercel
-SUPABASE_URL = os.environ.get("https://bibtsjtpsveadrkxuihr.supabase.co")
-SUPABASE_KEY = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpYnRzanRwc3ZlYWRya3h1aWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM5Njg0MTEsImV4cCI6MjA4OTU0NDQxMX0.7r-9EIwHSSmt9CTKKjJy1SdCIO4JNsFmEYPnDttIvkA")
+# CORRECT WAY: 
+# os.environ.get looks for the NAME of the variable in Vercel Settings, 
+# not the actual value itself.
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
 
 # Initialize the client
+# If the variables above are correctly set in Vercel, this will now succeed.
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @app.route('/api/s/<short_id>')
